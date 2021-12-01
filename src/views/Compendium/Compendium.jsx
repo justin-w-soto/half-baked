@@ -23,6 +23,7 @@ export default function Compendium() {
          setPokemons(pokemonList);
         setLoading(false);
       };
+
       getPokemon();
     }, []);
   
@@ -32,6 +33,7 @@ export default function Compendium() {
         const pokemonTypes = await fetchTypes();
         setTypes(pokemonTypes);
       }
+
       getTypes();
     }, []);
 
@@ -46,6 +48,7 @@ export default function Compendium() {
       } else {
         const pokemonList = await fetchPokemon();
         setPokemons(pokemonList);
+
       }
       setLoading(false);
       setSort('');
@@ -59,8 +62,8 @@ export default function Compendium() {
     setLoading(true);
     fetchSearchPokemon(searchName)
       .then((searchedPokemons) => {
-        this.setState({pokemons: searchedPokemons});
-      })
+        setPokemons(searchedPokemons)
+     })
       .catch((error) => {})
       .finally(() => {
         setLoading(false);
