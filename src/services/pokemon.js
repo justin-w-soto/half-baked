@@ -15,12 +15,12 @@ const favPokemon = [
 
 export const fetchPokemon = async () => {
   const pokemonList = await Promise.all(
-    favPokemon.map(async (fav) => {
-      const fetchedPokemon = await fetch(
+    favPokemon.map( (fav) => {
+      const fetchedPokemon = fetch(
         `https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${fav}`
       );
 
-      const pokemonData = await fetchedPokemon.json();
+      const pokemonData = fetchedPokemon.json();
 
       // Need to filter mega pokemon
       if (pokemonData.count > 1) {
