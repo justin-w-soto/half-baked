@@ -51,7 +51,6 @@ export default function Compendium() {
 
       }
       setLoading(false);
-      setSort('');
     }
 
     getFilteredPokemon();
